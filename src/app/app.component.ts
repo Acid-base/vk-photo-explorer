@@ -10,7 +10,6 @@ import '../../public/css/styles.css';
     styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit, DoCheck  {
-    title = 'Photo service';
     logged: boolean;
     constructor(private authService: AuthService,
                 public toastr: ToastsManager, vcr: ViewContainerRef) {
