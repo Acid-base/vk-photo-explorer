@@ -1,0 +1,67 @@
+<div *ngIf="albums" [@upload]="albums.state" class="col-md-10 col-md-offset-1">
+    <div class="row">
+        <h4 [class.visible]="!selectedAlbum">Select album:</h4>
+
+        <form #form="ngForm">
+            <div class="form-group">
+                <select
+                    [(ngModel)]="selectedAlbum"
+                    (change)="getUploadUrl(selectedAlbum); clearDropZone();"
+                    name="albumTitle"
+                    class="form-control select">
+                    <option
+                        *ngFor="let album of albums"
+                        [value]="album.aid"
+                        class="album-select">
+                        {{ album.title || album.description }}
+                    </option>
+                </select>
+            </div>
+        </form>
+
+        <div
+            *ngIf="uploadUrl"
+            [@upload]="uploadUrl.state"
+            (dragenter)="handleDragEnter($event)"
+            (dragleave)="handleDragLeave($event)"
+            (drop)="handleDrop($event)"
+            ondragover="return false;"
+            [ngClass]="{'file-over': onDrag, 'non-empty': images.length}"
+            class="drop-zone">
+
+            <div *ngIf="images.length" class="media-wrap">
+                <div *ngFor="let item of images" [@upload]="item.state" class="media">
+                    <img [src]="item.src" class="media-object">
+                    <div *ngIf="item.success" class="size">
+                        {{ item?.size/1024 | number:'1.1-1' }} KB
+                        <span><i class="glyphicon glyphicon-ok"></i></span>
+                    </div>
+                    <div *ngIf="!item.success" class="waiting">
+                        Waiting...
+                    </div>
+                    <div class="progress progress-small">
+                        <div
+                            [ngStyle]="{ 'width': item.progress + '%' }"
+                            class="progress-bar"
+                            role="progressbar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <label [class.non-empty]="images.length" class="browse">
+                <div>
+                    Drop files here or <span>browse</span>  to upload
+                </div>
+                <input
+                    (change)="checkFileType($event)"
+                    type="file"
+                    name="file"
+                    accept="image/*"
+                    multiple class="hidden">
+            </label>
+        </div>
+    </div>
+</div>
+
+<spinner *ngIf="!albums"></spinner>

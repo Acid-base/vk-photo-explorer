@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <header class="header" *ngIf="logged">
+                    <ul class="nav nav-tabs">
+                        <li>&nbsp;</li>
+                        <li routerLinkActive="active">
+                            <a routerLink="albums" class="fa fa-picture-o"></a>
+                            <a [routerLink]="['album']" class="fa fa-picture-o hidden"></a>
+                        </li>
+                        <li class="disabled">
+                            <a class="fa fa-windows"></a>
+                        </li>
+                        <li class="disabled">
+                            <a class="fa fa-map-marker"></a>
+                        </li>
+                        <li class="disabled">
+                            <a class="fa fa-comment"></a>
+                        </li>
+                        <li class="disabled">
+                            <a class="fa fa-square-o"></a>
+                        </li>
+                        <li class="disabled">
+                            <a class="fa fa-flag"></a>
+                        </li>
+                        <li routerLinkActive="active">
+                            <a routerLink="/upload" class="fa fa-upload"></a>
+                        </li>
+                    </ul>
+                </header>
+            </div>
+        </div>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+html {
+    min-height: 100%;
+}
+body {
+  font: 1.25em/1.5 'Open Sans', Arial, sans-serif;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+a:hover, a:active, a:focus {
+  text-decoration: none;
+}
+
+.toast.toast-custom {
+  background-color: #f5f5f5;
+}
+
+.custom-toast-color {
+  color: #333;
+}
+
+.spinner {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: #0072aa;
+}
+.row {
+  margin-left: -25px;
+}
+
+.cbalink {
+  display: none !important;
+}
+
+
+@media (max-width: 768px) {
+  .col-md-8, .col-md-10 {
+    padding: 0;
+  }
+}

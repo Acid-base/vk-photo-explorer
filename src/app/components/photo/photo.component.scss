@@ -1,0 +1,50 @@
+h1 {
+  color: blue;
+}
+
+img {
+  position: relative;
+  max-width: 80%;
+  max-height: 75vh;
+}
+
+.description {
+  display: flex;
+  margin-top: 1em;
+
+  & > div {
+    margin-right: 1em;
+  }
+
+  .photo-details {
+    max-width: 85%;
+  }
+}
+
+.info {
+  max-width: 83%;
+  margin-bottom: 1em;
+  padding-left: 0.3rem;
+  padding-bottom: 0.7em;
+  border-bottom: 2px solid #ddd;
+  color: #7D7D7D;
+
+  & > i:first-child {
+    cursor: pointer;
+  }
+
+  i {
+    position: relative;
+    top: 1rem;
+    left: -1rem;
+    font-size: 3em;
+    cursor: default;
+  }
+
+  span {
+    font-size: 2em;
+  }
+  @media (min-width: 769px) {
+    margin-left: 8.4%;
+  }
+}

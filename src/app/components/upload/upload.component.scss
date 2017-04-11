@@ -1,0 +1,136 @@
+.wrap {
+  max-width: 50em;
+}
+
+.row {
+  margin-left: -15px;
+}
+
+h4 {
+  position: relative;
+  top: 2.4em;
+  display: inline-block;
+  margin-left: 1.2em;
+  opacity: 0;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.drop-zone {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  margin: 0 auto;
+  border: dashed 3px lightgray;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+
+  .browse {
+    text-align: center;
+    font-size: 1.5em;
+
+    span {
+      color: #b1ddec;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    &.non-empty {
+      position: absolute;
+      top: 0.6em;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  }
+
+  &.non-empty {
+    padding-top: 3.5em;
+  }
+
+  &.file-over {
+    border-color: #b1ddec;
+  }
+}
+
+.media-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 2em;
+  padding: 0 auto 2em;
+}
+
+.select {
+  min-height: 3.5em;
+  margin: 0 auto;
+
+  .album-select {
+    min-height: 3em;
+    font-size: 1.5em;
+  }
+}
+
+.media {
+  position: relative;
+  display: flex;
+  max-width: 20em;
+  height: 9em;
+  margin: 0.5em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #eee;
+  overflow: hidden;
+
+  img {
+    align-self: flex-start;
+    width: 12em;
+    z-index: 60;
+  }
+
+  .size {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1.5em;
+    padding-left: 3px;
+    background-color: #eee;
+    z-index: 100;
+
+    .glyphicon-ok {
+      position: absolute;
+      right: 3px;
+    }
+  }
+
+  .progress.progress-small {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1.5em;
+    margin: 0;
+    border-radius: 0;
+    background-color: transparent;
+    z-index: 100;
+
+    .progress-bar {
+      background-color: #5ab906;
+      opacity: 0.3;
+    }
+  }
+
+  .waiting {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1.5em;
+    background-color: #eee;
+    text-align: center;
+    z-index: 100;
+  }
+}

@@ -1,0 +1,37 @@
+<div *ngIf="album" [@album]="album.state" class="col-md-10 col-md-offset-1">
+    <div class="info">
+        <i (click)="goBack()" class="material-icons">chevron_left</i>
+        <i class="material-icons">folder</i>
+        <span>{{ title }}</span>
+    </div>
+    <ul infinityScroll (onScrollMethod)="loadPhotos($event)" class="album">
+        <li *ngFor="let photo of slicedAlbum; let i=index" class="photo">
+            <div class="photo-container">
+                <spinner></spinner>
+                <img [src]="photo.src" (mouseover)="showTooltip(i)" (mouseleave)="hideTooltip()" alt="">
+            </div>
+            <div *ngIf="i === idx" [class.hidden]="hidden" class="photo-tooltip">
+                <div>
+                    Filename: <br> {{ photo.text ? 'Caption:' : '' }}
+                </div>
+                <div>
+                    {{ photo.src.split('/').slice(-1) }} <br> {{ photo.text }}
+                </div>
+            </div>
+            <div class="select-photo">
+                <a [routerLink]="['photo', photo.pid]" (click)="saveAmount()"><i class="fa fa-check blue m3"></i> Select</a>
+            </div>
+        </li>
+        <li *ngIf="!noPhotos && !loading" (click)="loadPhotos()" class="load-more">
+            <i class="material-icons">refresh</i>
+        </li>
+        <li *ngIf="noPhotos" class="no-photos">
+            <span>no more photos</span>
+        </li>
+    </ul>
+    <div *ngIf="loading" class="ul-spinner">
+        <spinner [reset]="true"></spinner>
+    </div>
+</div>
+
+<spinner *ngIf="!album"></spinner>

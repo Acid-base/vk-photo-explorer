@@ -1,0 +1,42 @@
+.wrapper {
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
+.header {
+  padding-top: 2em;
+  padding-left: 1em;
+  @media (max-width: 768px) {
+    padding-top: 0.5em;
+
+    li.disabled {
+      display: none;
+    }
+  }
+
+  .nav-tabs {
+    border-bottom: 2px solid #ddd;
+
+    li {
+      text-align: center;
+
+      &.active {
+        a {
+          position: relative;
+          top: 1px;
+          border-width: 2px;
+          color: #337ab7;
+        }
+      }
+
+      a {
+        padding: 2px 20px;
+        font-size: 3em;
+        color: #b1ddec;
+      }
+
+      &:first-child {
+        min-width: 1em;
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+ul {
+  margin-left: -2.5em;
+  list-style: none;
+}
+
+li {
+  position: relative;
+  padding: 1em 3.5em;
+  border-top: 2px solid #c9c9c9;
+  background: #f6f6f6;
+
+  &:last-child {
+    border-bottom: 2px solid #999;
+  }
+}
+
+.info {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0;
+  color: #999;
+  font-size: 1.1em;
+
+  i {
+    padding-right: 0.5em;
+
+    &.fa-clock-o {
+      font-size: 1.2em;
+    }
+  }
+}
+
+.album-preview {
+  display: inline-block;
+  max-width: 10em;
+  max-height: 7em;
+  margin-right: 1em;
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+h3 {
+  margin: 0;
+}
+
+.account {
+  min-height: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 2.5rem;
+  font-size: 1.5em;
+}
+
+.album-link {
+  position: absolute;
+  top: 25%;
+  right: 1em;
+  font-size: 5em;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

@@ -1,0 +1,24 @@
+<div *ngIf="photo" [@photo]="photo.state">
+    <div class="info">
+        <i (click)="goBack()" class="material-icons">chevron_left</i>
+        <span>{{ filename }}</span>
+    </div>
+    <div class="container-photo text-center">
+        <spinner></spinner>
+        <img [src]="src" [alt]="'photo by ' + user.name">
+    </div>
+    <div class="col-md-10 col-md-offset-1" >
+        <div class="description">
+            <div class="photo-captions">
+                <div><b>Filename:</b></div>
+                <div><b>{{ photo.text ? 'Caption:' : ''}}</b></div>
+            </div>
+            <div class="photo-details">
+                {{ filename }}
+                <p>{{ photo.text  }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<spinner *ngIf="!photo"></spinner>

@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="account">
+            <auth-profile></auth-profile>
+        </div>
+    </div>
+    <div *ngIf="albums" [@albums]="albums.state" class="col-md-10 col-md-offset-1">
+        <ul>
+            <li *ngFor="let album of albums">
+                <div class="album-preview">
+                    <img [src]="album.thumb_src" [alt]="album.title + ' preiview'">
+                </div>
+                <div class="info">
+                    <h3><a [routerLink]="['/album', album.aid]">{{ album.title || album.description }}</a></h3><br>
+                    <i class="fa fa-picture-o"></i> {{ album.size }} {{ album.size > 1 ? 'files' : 'file' }} <br>
+                    <i class="fa fa-clock-o"></i> {{ album.updated * 1000 | amTimeAgo }}
+                </div>
+                <a [routerLink]="['/album', album.aid]" class="fa fa-angle-double-right album-link" aria-hidden="true"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<spinner *ngIf="!albums"></spinner>
